@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Draw Together </title>
+		<script>
+		</script>
+	
+	</head>
+	<body>
+		<canvas id="mainCanvas" width="500" height= "500" style="border: 1px #000 solid"></canvas><br>
+
+		<label>Stroke Color: 
+			<select id="strokeStyleChooser">
+				<option value="red" selected>Red</option>
+				<option value="orange">Orange</option>
+        		<option value="yellow">Yellow</option>
+        		<option value="green">Green</option>
+				<option value="blue">Blue</option>
+        		<option value="purple">Purple</option>
+        		<option value="black">Black</option>
+				<option value="white">White</option>
+        		<option value="saddleBrown">Brown</option>
+        		<option value="aqua">Aqua</option>
+    		</select>
+    	</label><br>
+
+    	<label>Line Width: 
+			<select id="lineWidthChooser">
+				<option value="1">1</option>
+				<option value="2">2</option>
+        		<option value="3" selected>3</option>
+        		<option value="4">4</option>
+				<option value="5">5</option>
+        		<option value="6">6</option>
+        		<option value="7">7</option>
+				<option value="8">8</option>
+        		<option value="9">9</option>
+        		<option value="10">10</option>
+    		</select>
+    	</label>
+
+	</body>
+	<script src="socket.io/socket.io.js"></script>
+	<script src="canvas.js"></script>
+</html>
