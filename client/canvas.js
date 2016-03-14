@@ -10,16 +10,16 @@ var mouseInfo = {
 	pre_pos: false
 };
 
-
+//On page load
 var init = function(){
-	console.log('init called');
 
+	//Default Settings
 	canvas = document.querySelector('#mainCanvas');
 	ctx = canvas.getContext('2d');
 	lineWidth = 3;
 	strokeStyle = 'red';
 
-	//events conditions
+	//Event Listeners
 	canvas.onmousedown = function(e){
 		mouseInfo.click = true;
 	};
@@ -44,17 +44,16 @@ var init = function(){
 		lineWidth = e.target.value;
 	};
 
-	//socket stuff
+	//Socket Connection
 	var socket = io.connect(); 
 
 	socket.on('connect', function(){
-		console.log('Connected')
+		console.log('Connected to canvas')
 	})
 
 	socket.emit('join');
 
-	//socket.on('initLines', function())
-
+	//Recieiving lines from server
 	socket.on('clientDraw', function(data){
 		var line = data.line;
 		ctx.beginPath();
@@ -65,6 +64,8 @@ var init = function(){
 		ctx.stroke();
 	})
 
+	//Constant loop to check if client is drawing
+	//If drawing, send line info to server as an object
 	var loop = function(){
 		if(mouseInfo.click && mouseInfo.moving){
 
